@@ -19,6 +19,7 @@ const validarProyecto = [
   body('proyecto.demo').optional().isURL().withMessage('El enlace a la demo debe ser una URL válida'),
 ];
 
+//por qué un post? para subirlos?
 router.post('/projects', validarProyecto, (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -28,5 +29,10 @@ router.post('/projects', validarProyecto, (req, res, next) => {
   projectController.createProject(req, res, next);
 });
 
+
+router.get('/list', projectController.ListProjects);
+
 module.exports = router;
+
+
 
