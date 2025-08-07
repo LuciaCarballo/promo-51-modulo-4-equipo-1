@@ -8,7 +8,6 @@ const insertarProyecto = async (datosProyecto, idAutora) => {
   `;
 
   const valoresProyecto = [
-    uuid,
     datosProyecto.nombre,
     datosProyecto.descripcion,
     datosProyecto.tecnologias,
@@ -20,7 +19,7 @@ const insertarProyecto = async (datosProyecto, idAutora) => {
 
   await db.execute(consultaProyecto, valoresProyecto);
 
-  return uuid;
+  
 };
 
 const insertarAutora = async (datosAutora) => {
@@ -54,7 +53,7 @@ const obtenerProyectos = async () => {
   return proyectos;
 };
 
-const obtenerProyectoPorUUID = async (uuid) => {
+/* const obtenerProyectoPorUUID = async (id) => {
   const consulta = `
     SELECT 
       p.uuid, p.nombre AS nombre_proyecto, p.descripcion, p.tecnologias, p.imagen, p.github, p.demo,
@@ -66,11 +65,11 @@ const obtenerProyectoPorUUID = async (uuid) => {
 
   const [resultados] = await db.execute(consulta, [uuid]);
   return resultados[0];
-};
+}; */
 
 module.exports = {
   insertarProyecto,
   insertarAutora,
   obtenerProyectos,
-  obtenerProyectoPorUUID,
+  
 };

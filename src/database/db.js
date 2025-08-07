@@ -9,7 +9,7 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   ssl: {
-    ca: fs.readFileSync('/ruta/al/certificado/ca.pem'), //certificado de aiven (mirar juntas)
+    ca: fs.readFileSync('certs/ca.pem'), //certificado de aiven (mirar juntas)
     rejectUnauthorized: true,
   },
 });
