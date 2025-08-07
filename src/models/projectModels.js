@@ -1,8 +1,6 @@
 const db = require('../database/db');
-const { v4: uuidv4 } = require('uuid');
 
 const insertarProyecto = async (datosProyecto, idAutora) => {
-  const uuid = uuidv4();
 
   const consultaProyecto = `
     INSERT INTO proyectos (uuid, nombre, descripcion, tecnologias, imagen, github, demo, autora_id)
