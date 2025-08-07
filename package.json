@@ -12,9 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/LuciaCarballo/promo-51-modulo-4-equipo-1.git"
   },
-  "keywords": [
-    
-  ],
+  "keywords": [],
   "author": "Lucia Carballo",
   "license": "ISC",
   "bugs": {
@@ -25,6 +23,7 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "express-validator": "^7.2.1",
     "mysql2": "^3.14.3",
     "nodemon": "^3.1.10"
   }
