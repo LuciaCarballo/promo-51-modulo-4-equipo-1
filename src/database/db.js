@@ -1,4 +1,4 @@
-const mysql = require('mysql2/promise');
+/* const mysql = require('mysql2/promise');
 const fs = require('fs');
 require('dotenv').config();
 
@@ -15,3 +15,4 @@ const pool = mysql.createPool({
 });
 
 module.exports = pool;
+ */

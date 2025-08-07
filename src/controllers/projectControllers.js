@@ -1,4 +1,4 @@
-const project = require('../models/projectModels');
+/* const project = require('../models/projectModels');
 
 async function listProjects (req, res){
     const projectList = await project.getAll();
@@ -9,4 +9,4 @@ async function listProjects (req, res){
 
 //añadir datos 
 
-module.exports = {ListProjects}
+module.exports = {ListProjects} */

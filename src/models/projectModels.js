@@ -1,4 +1,4 @@
-const db = require('../database/db');
+/* const db = require('../database/db');
 
 const insertarProyecto = async (datosProyecto, idAutora) => {
 
@@ -53,7 +53,7 @@ const obtenerProyectos = async () => {
   return proyectos;
 };
 
-/* const obtenerProyectoPorUUID = async (id) => {
+const obtenerProyectoPorUUID = async (id) => {
   const consulta = `
     SELECT 
       p.uuid, p.nombre AS nombre_proyecto, p.descripcion, p.tecnologias, p.imagen, p.github, p.demo,
@@ -65,7 +65,7 @@ const obtenerProyectos = async () => {
 
   const [resultados] = await db.execute(consulta, [uuid]);
   return resultados[0];
-}; */
+}; 
 
 module.exports = {
   insertarProyecto,
@@ -73,3 +73,4 @@ module.exports = {
   obtenerProyectos,
   
 };
+ */
