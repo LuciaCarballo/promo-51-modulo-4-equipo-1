@@ -156,18 +156,14 @@ testDBConnection();
 
 // FALTA HACER: servidor estático (para que se vea la web en la página principal (la web está dentro de /web))
 // const staticServerPath = "./src/web/dist";   // >>> dist no se ha creado (npm run build)
-// server.use(express.static(staticServerPath));
+// server.use(express.static(staticServerPath));/*
 
-/* 
-
-
-// Servidor estático
 const path = require("path");
 
-const staticServerPath = path.join(__dirname, "web/dist");
+const staticServerPath = path.join(__dirname, "../web/dist");
 server.use(express.static(staticServerPath));
 
 // Para que React maneje las rutas del frontend (SPA)
 server.get("*", (req, res) => {
   res.sendFile(path.join(staticServerPath, "index.html"));
-}); */
+});
