@@ -70,7 +70,7 @@ server.get('/autoras', async(req, res) => {
 server.get('/proyecto-autora', async(req, res) => {
     try{
         const connection = await getConnection();
-        const [result] = await connection.query('SELECT proyectos.projectName as name, proyectos.slogan, proyectos.repo, proyectos.demo, proyectos.technologies, proyectos.description, proyectos.projectPhoto, authors.authorName as autor, authors.job, authors.authorPhoto as image FROM defaultdb.authors, defaultdb.proyectos;');
+        const [result] = await connection.query('SELECT proyectos.projectName as name, proyectos.slogan, proyectos.repo, proyectos.demo, proyectos.technologies, proyectos.description, proyectos.projectPhoto, authors.authorName as autor, authors.job, authors.authorPhoto as image FROM defaultdb.authors INNER JOIN defaultdb.proyectos ON proyectos.id_author = authors.id_author;');
         await connection.end();
         res.status(200).json({
             info: { "count": result.lenght },
@@ -164,6 +164,6 @@ testDBConnection();
 
 
 
- // FALTA HACER: servidor estático (para que se vea la web en la página principal (la web está dentro de /web))
-// const staticServerPath = "./src/web/dist";   // >>> dist no se ha creado (npm run build)
-// server.use(express.static(staticServerPath));
+ // REVISAR SERVIDOR ESTÁTICO (pedir soporte?) mirar error en consola, no coge bien el dist
+ const staticServerPath = "src/web/dist";   
+ server.use(express.static(staticServerPath));
