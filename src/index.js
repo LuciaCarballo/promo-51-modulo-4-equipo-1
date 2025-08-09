@@ -66,11 +66,12 @@ server.get('/autoras', async(req, res) => {
     }
 }); 
 
-// ver api mixta
+// ver api mixta >>>> ESCAPARATE
 server.get('/proyecto-autora', async(req, res) => {
     try{
         const connection = await getConnection();
-        const [result] = await connection.query('SELECT proyectos.projectName as name, proyectos.slogan, proyectos.repo, proyectos.demo, proyectos.technologies, proyectos.description, proyectos.projectPhoto, authors.authorName as autor, authors.job, authors.authorPhoto as image FROM defaultdb.authors INNER JOIN defaultdb.proyectos ON proyectos.id_author = authors.id_author;');
+        // revisar nombres? proyectos.projectName as ???
+        const [result] = await connection.query('SELECT proyectos.projectName as projectName, proyectos.slogan, proyectos.repo, proyectos.demo, proyectos.technologies, proyectos.description, proyectos.projectPhoto, authors.authorName as autor, authors.job, authors.authorPhoto as image FROM defaultdb.authors INNER JOIN defaultdb.proyectos ON proyectos.id_author = authors.id_author;');
         await connection.end();
         res.status(200).json({
             info: { "count": result.lenght },
@@ -96,7 +97,7 @@ server.get('/proyecto-autora/:id', async(req, res) => {
         res.status(500).json({error: error});
     }
 }); 
-// ver api de un proyecto concreto según su autora (a futuro añadir datos autora?)
+// ver api de un proyecto (solo datos proyectos) concreto según su autora 
 server.get("/proyectos/:idAuthor", async (req, res) => {
   const id = req.params.id;
   try {
