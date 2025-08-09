@@ -1,0 +1,16 @@
+@use '../core/variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+fieldset {
+  border: 0;
+}
+
+body {
+    background-color: variables.$color-dusk; 
+
+}

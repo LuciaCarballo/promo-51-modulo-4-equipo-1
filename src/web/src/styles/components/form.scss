@@ -1,0 +1,83 @@
+@use '../core/variables';
+
+.form {
+  background: radial-gradient(circle at 50% 50%, variables.$color-dusk, #211e2e 92%);
+  padding: 20px;
+  border-radius: 20px;
+  color: variables.$color-white;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  &__title {
+    font: variables.$font-title-biggest;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font: variables.$font-title-medium;
+    text-align: center;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &--upload {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
+
+  &__2col {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__input {
+    padding: 10px 16px;
+    border-radius: 40px;
+    border: 2px solid variables.$color-white;
+    background: transparent;
+    color: variables.$color-white;
+    width: 100%;
+
+    &::placeholder {
+      color: variables.$color-white-50;
+    }
+
+    &--textarea {
+      border-radius: 30px;
+      min-height: 90px;
+    }
+  }
+
+.form {
+  &__uploadButton,
+  &__resetButton {
+    border: none;
+    border-radius: 40px;
+    padding: 8px 18px;
+    color: variables.$color-white;
+    cursor: pointer;
+    font: variables.$font-button;
+  }
+    &__resetButton {
+      background-color: gray;
+       background: linear-gradient(to right, #6a638b, #3b3447);
+    }
+
+    &__uploadButton {
+      background: linear-gradient(to right, variables.$color-dark-lilac, #c0b7e8);
+    }
+
+}
+
+.form__hidden {
+  display: none;
+}
+
+}

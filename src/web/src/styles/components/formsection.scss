@@ -1,0 +1,30 @@
+@use '../core/variables';
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-inline: 20px;
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .formSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+
+    &__image {
+      min-height: 400px;
+    }
+  }
+}

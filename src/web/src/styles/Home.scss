@@ -1,0 +1,48 @@
+.home {
+  min-height: 100vh;
+  background-image: url('https://www.transparenttextures.com/patterns/diagmonds-light.png'); // textura suave
+  background-color: #3a0ca3; 
+  background-repeat: repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+
+  &__card {
+    background-color: #9d4edd; 
+    padding: 3rem;
+    border-radius: 16px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__button {
+    background-color: white;
+    color: #3a0ca3;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: 0.3s;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #f3f3f3;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@use '../core/variables';
+
+.hero {
+  background-color: #8764bc;
+  background-image: url('https://www.transparenttextures.com/patterns/diagmonds-light.png'); // textura suave
+  background-color: #3a0ca3; 
+  background-repeat: repeat;
+  text-align: center;
+  padding: 50px 20px;
+  margin: 0rem auto 2.5rem auto;
+
+    &__title {
+      font: variables.$font-title-biggest;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      color: variables.$color-white;
+      margin-bottom: 10px;
+    }
+
+    &__subtitle {
+      color: variables.$color-white;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+      margin-bottom: 20px;
+      font: variables.$font-text-big;
+    }
+
+    &__button {
+      font-family: "Montserrat", sans-serif;;
+      background-color: variables.$color-white;
+      color: variables.$color-dark-lilac;
+      padding: 10px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font: variables.$font-button;
+      display: inline-block;
+      transition: background-color 0.3s;
+
+    &:hover {
+      background-color: lighten(variables.$color-dark-lilac, 10%);
+    }
+  }
+}
