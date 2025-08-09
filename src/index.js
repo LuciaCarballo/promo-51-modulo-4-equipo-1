@@ -52,20 +52,50 @@ server.get("/proyectos", async (req, res) => {
 });
 
 // ver api autoras
-server.get("/autoras", async (req, res) => {
-  try {
-    const connection = await getConnection();
-    const [result] = await connection.query("SELECT * FROM defaultdb.authors");
-    await connection.end();
-    res.status(200).json({
-      info: { count: result.length },
-      result: result,
-    });
-  } catch (error) {
-    res.status(500).json({ error: error });
-  }
-});
+server.get('/autoras', async(req, res) => {
+    try{
+        const connection = await getConnection();
+        const [result] = await connection.query('SELECT * FROM defaultdb.authors');
+        await connection.end();
+        res.status(200).json({
+            info: { "count": result.lenght },
+            result: result
+        });
+     } catch(error){
+        res.status(500).json({error: error});
+    }
+}); 
 
+// ver api mixta
+server.get('/proyecto-autora', async(req, res) => {
+    try{
+        const connection = await getConnection();
+        const [result] = await connection.query('SELECT proyectos.projectName as name, proyectos.slogan, proyectos.repo, proyectos.demo, proyectos.technologies, proyectos.description, proyectos.projectPhoto, authors.authorName as autor, authors.job, authors.authorPhoto as image FROM defaultdb.authors INNER JOIN defaultdb.proyectos ON proyectos.id_author = authors.id_author;');
+        await connection.end();
+        res.status(200).json({
+            info: { "count": result.lenght },
+            result: result
+        });
+     } catch(error){
+        res.status(500).json({error: error});
+    }
+}); 
+
+// localizar un proyecto por la id de la api mixta
+server.get('/proyecto-autora/:id', async(req, res) => {
+    const id = req.params.id;
+    try{
+        const connection = await getConnection();
+        const [result] = await connection.query('SELECT proyectos.projectName as name, proyectos.slogan, proyectos.repo, proyectos.demo, proyectos.technologies, proyectos.description, proyectos.projectPhoto, authors.authorName as autor, authors.job, authors.authorPhoto as image FROM defaultdb.authors, defaultdb.proyectos WHERE proyectos.id = ?;', [id]);
+        await connection.end();
+        res.status(200).json({
+            info: { "count": result.lenght },
+            result: result
+        });
+     } catch(error){
+        res.status(500).json({error: error});
+    }
+}); 
 // ver api de un proyecto concreto según su autora (a futuro añadir datos autora?)
 server.get("/proyectos/:idAuthor", async (req, res) => {
   const id = req.params.id;
@@ -154,16 +184,9 @@ server.post("/subir-proyecto", async (req, res) => {
 testDBConnection();
  */
 
-// FALTA HACER: servidor estático (para que se vea la web en la página principal (la web está dentro de /web))
-// const staticServerPath = "./src/web/dist";   // >>> dist no se ha creado (npm run build)
-// server.use(express.static(staticServerPath));/*
 
-const path = require("path");
 
-const staticServerPath = path.join(__dirname, "../web/dist");
-server.use(express.static(staticServerPath));
 
-// Para que React maneje las rutas del frontend (SPA)
-server.get("*", (req, res) => {
-  res.sendFile(path.join(staticServerPath, "index.html"));
-});
+ // REVISAR SERVIDOR ESTÁTICO (pedir soporte?) mirar error en consola, no coge bien el dist
+ const staticServerPath = "src/web/dist";   
+ server.use(express.static(staticServerPath));
