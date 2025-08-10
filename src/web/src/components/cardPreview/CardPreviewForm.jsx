@@ -6,6 +6,7 @@ import ButtonCard from '../ButtonCard.jsx';
 
 
 
+
 function CardPreview({ data }) {
   return (
     <section className="preview">

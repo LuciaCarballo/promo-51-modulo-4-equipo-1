@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js",
+    "start": "npm run build --prefix src/web && node src/index.js",
     "build": "vite build",
     "dev": "nodemon src/index.js"
   },

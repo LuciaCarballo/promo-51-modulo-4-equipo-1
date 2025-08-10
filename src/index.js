@@ -16,12 +16,7 @@ server.use(express.json());
 
 const PORT = process.env.PORT || 3000; // el puerto
 
-// aquí escucha al puerto y nos da en consola el enlace donde podemos "verlo"
-server.listen(PORT, () => {
-  console.log(
-    `Servidor escuchando en puerto ${PORT}, http://localhost:${PORT}`
-  );
-});
+//He movido el server.listen al final (consejo de nuestro buen amigo chati)
 
 //esto comentado abajo lo haremos cuando hagamos los archivos controllers, routes, db, models >>>
 // server.use('/api', projectRoutes);
@@ -78,7 +73,7 @@ server.get('/proyecto-autora', async(req, res) => {
         const [result] = await connection.query('SELECT proyectos.projectName as projectName, proyectos.slogan, proyectos.repo, proyectos.demo, proyectos.technologies, proyectos.description, proyectos.projectPhoto, authors.authorName as autor, authors.job, authors.authorPhoto as image FROM defaultdb.authors INNER JOIN defaultdb.proyectos ON proyectos.id_author = authors.id_author;');
         await connection.end();
         res.status(200).json({
-            info: { "count": result.lenght },
+            info: { "count": result.length },
             result: result
         });
      } catch(error){
@@ -94,7 +89,7 @@ server.get('/proyecto-autora/:id', async(req, res) => {
         const [result] = await connection.query('SELECT proyectos.projectName as name, proyectos.slogan, proyectos.repo, proyectos.demo, proyectos.technologies, proyectos.description, proyectos.projectPhoto, authors.authorName as autor, authors.job, authors.authorPhoto as image FROM defaultdb.authors, defaultdb.proyectos WHERE proyectos.id = ?;', [id]);
         await connection.end();
         res.status(200).json({
-            info: { "count": result.lenght },
+            info: { "count": result.length },
             result: result
         });
      } catch(error){
@@ -198,3 +193,20 @@ testDBConnection();
  // REVISAR SERVIDOR ESTÁTICO (pedir soporte?) mirar error en consola, no coge bien el dist
  const staticServerPath = "src/web/dist";   
  server.use(express.static(staticServerPath));
+
+
+ const path = require("path");
+
+server.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "web", "dist", "index.html"));
+
+
+  // aquí escucha al puerto y nos da en consola el enlace donde podemos "verlo"
+
+});
+
+server.listen(PORT, () => {
+  console.log(
+    `Servidor escuchando en puerto ${PORT}, http://localhost:${PORT}`
+  );
+});

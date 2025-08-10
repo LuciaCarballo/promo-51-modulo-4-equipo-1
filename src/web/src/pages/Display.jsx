@@ -12,7 +12,7 @@ function Projects() {
     fetch('http://localhost:3000/proyectos')
       .then(res => res.json())
       .then(data => {
-        setProjects(data);
+        setProjects(data.result);
         setLoading(false);
       })
       .catch(err => {

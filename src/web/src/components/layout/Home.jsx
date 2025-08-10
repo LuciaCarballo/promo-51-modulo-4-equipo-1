@@ -3,8 +3,6 @@ import CardPreview from '../cardPreview/CardPreviewForm.jsx';
 import Hero from './Hero.jsx';
 
 
-
-
 function Landing ({data, handleInputChange, handleImageProject, handleImageAuthor, handleResetForm}) {
 
 
