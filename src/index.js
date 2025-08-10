@@ -10,6 +10,10 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
+// PROBLEMA FOTOS: solución en teoría para que no nos ponga que pesa demasiado lo que pasamos al form (fotos) pero no funciona
+//server.use(express.json({ limit: '100mb' }));
+// server.use(express.urlencoded({ extended: true, limit: '100mb' }));
+
 const PORT = process.env.PORT || 3000; // el puerto
 
 // aquí escucha al puerto y nos da en consola el enlace donde podemos "verlo"
@@ -126,6 +130,7 @@ server.get("/proyectos/:idAuthor", async (req, res) => {
 // SUBIR PROYECTO Y AUTORA
 
 server.post("/subir-proyecto", async (req, res) => {
+   
   const { authorName, job, authorPhoto } = req.body;
 
   const {
@@ -167,7 +172,6 @@ server.post("/subir-proyecto", async (req, res) => {
       "id proyecto": resultProject.insertId,
       "id autora": resultAuthor.insertId,
     });
-    console.log("autora: ", resultAuthor, "proyecto: ", resultProject);
   } catch (error) {
     res.status(500).json(error);
   }
