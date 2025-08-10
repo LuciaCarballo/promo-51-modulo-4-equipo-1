@@ -1,4 +1,6 @@
- 
+ import { Link } from 'react-router-dom';
+
+
  function Hero () {
     return (
         <>
@@ -7,9 +9,10 @@
             <p className="hero__subtitle">
             Escaparate en línea para recoger ideas a través de la tecnología.
             </p>
-            <a href="#" className="hero__button">
-            ver los proyectos
-            </a>
+            <Link to="/display" className="hero__button">
+                ver los proyectos
+            </Link>
+
       </section>
         </>
     )

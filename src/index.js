@@ -62,7 +62,7 @@ server.get('/autoras', async(req, res) => {
         const [result] = await connection.query('SELECT * FROM defaultdb.authors');
         await connection.end();
         res.status(200).json({
-            info: { "count": result.lenght },
+            info: { "count": result.length },
             result: result
         });
      } catch(error){
@@ -111,6 +111,9 @@ server.get("/proyectos/:idAuthor", async (req, res) => {
       [id]
     );
     await connection.end();
+
+
+    // ESTO CREO QUE SE PUEDE QUITAR
 
     const name = result[0].personaje;
 

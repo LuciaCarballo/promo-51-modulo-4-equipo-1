@@ -4,6 +4,7 @@ import Header from './components/layout/Header.jsx';
 import Home from './components/layout/Home.jsx';
 import Footer from './components/layout/Footer.jsx';
 import CardPreviewSite from './components/cardPreview/CardPreviewSite.jsx';
+import Display from './pages/Display.jsx';
 import { Routes, Route } from 'react-router';
 import { useState, useEffect } from 'react';
 
@@ -116,6 +117,8 @@ const newdata  = {
       />
       } />
       <Route path="/cardPreview" element={<CardPreviewSite data={data} response={response} saveProject={saveProject} />} />
+      <Route path="/display" element={<Display />} />
+
       </Routes>
       <Footer />
     </>
