@@ -10,10 +10,6 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-// PROBLEMA FOTOS: solución en teoría para que no nos ponga que pesa demasiado lo que pasamos al form (fotos) pero no funciona
-//server.use(express.json({ limit: '100mb' }));
-// server.use(express.urlencoded({ extended: true, limit: '100mb' }));
-
 const PORT = process.env.PORT || 3000; // el puerto
 
 //He movido el server.listen al final (consejo de nuestro buen amigo chati)
@@ -107,17 +103,14 @@ server.get("/proyectos/:idAuthor", async (req, res) => {
     );
     await connection.end();
 
-
-    // ESTO CREO QUE SE PUEDE QUITAR
-
-    const name = result[0].personaje;
+    const name = result[0].projectName;
 
     if (result.length === 0) {
-      return res.status(404).json({ error: "frase no encontrada" });
+      return res.status(404).json({ error: "proyecto no encontrado" });
     }
     res.status(200).json({
-      "ID del personaje": id,
-      personaje: name,
+      "ID del proyecto": id,
+      proyecto: name,
       result: result,
     });
   } catch (error) {
@@ -195,18 +188,18 @@ testDBConnection();
  server.use(express.static(staticServerPath));
 
 
- const path = require("path");
+ //const path = require("path");
 
-server.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "web", "dist", "index.html"));
-
+//server.get("*", (req, res) => {
+//  res.sendFile(path.resolve(__dirname, "web", "dist", "index.html"));
 
   // aquí escucha al puerto y nos da en consola el enlace donde podemos "verlo"
 
-});
+//});
 
 server.listen(PORT, () => {
   console.log(
     `Servidor escuchando en puerto ${PORT}, http://localhost:${PORT}`
   );
 });
+
