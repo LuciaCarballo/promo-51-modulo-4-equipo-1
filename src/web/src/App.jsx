@@ -118,6 +118,7 @@ const newdata  = {
       } />
       <Route path="/cardPreview" element={<CardPreviewSite data={data} response={response} saveProject={saveProject} />} />
       <Route path="/display" element={<Display />} />
+      <Route path="/landing" element={<Landing />} />
 
       </Routes>
       <Footer />

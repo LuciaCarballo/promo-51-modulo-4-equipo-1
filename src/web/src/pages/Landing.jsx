@@ -9,9 +9,15 @@ function Home() {
         <p>¿Quieres sumar tu proyecto al escaparate de TalentLAB?</p>
         <p>¡Comparte tu proyecto!</p>
 
-        <Link to="/app">
-          <button className="home__button">Entrar</button>
-        </Link>
+        <div className="home__links">
+          <Link to="/app">
+            <button className="home__button">Subir proyecto</button>
+          </Link>
+
+          <Link to="/display">
+            <button className="home__button">Galería de proyectos</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

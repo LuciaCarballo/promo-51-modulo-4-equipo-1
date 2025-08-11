@@ -29,6 +29,14 @@
     }
   }
 
+   &__links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; // espacio entre botones
+    margin-top: 2rem;
+    flex-wrap: wrap; // por si el espacio es pequeño
+  }
+
   &__button {
     background-color: white;
     color: #3a0ca3;

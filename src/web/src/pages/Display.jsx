@@ -22,6 +22,18 @@ function Projects() {
   }, []);
 
   return (
+
+  <div>
+{/* 
+    <section className="hero">
+            <h1 className="hero__title">TalentLAB</h1>
+            
+            <Link to="/app" className="hero__button">
+                Subir nuevo proyecto
+            </Link>
+
+      </section> */}
+
     <section className="project">
       <h2 className="project__title">Proyectos subidos</h2>
 
@@ -75,6 +87,8 @@ function Projects() {
         </div>
       )}
     </section>
+
+    </div>
   );
 }
 
