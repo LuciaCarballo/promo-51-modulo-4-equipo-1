@@ -116,7 +116,7 @@ const newdata  = {
       handleResetForm={handleResetForm}
       />
       } />
-      <Route path="/cardPreview" element={<CardPreviewSite data={data} response={response} saveProject={saveProject} />} />
+      <Route path="/cardPreviewSite" element={<CardPreviewSite data={data} response={response} saveProject={saveProject} />} />
       <Route path="/display" element={<Display />} />
       <Route path="/landing" element={<Landing />} />
 

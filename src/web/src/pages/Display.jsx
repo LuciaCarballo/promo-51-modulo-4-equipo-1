@@ -9,7 +9,7 @@ function Projects() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/proyectos')
+    fetch('http://localhost:3000/proyecto-autora')
       .then(res => res.json())
       .then(data => {
         setProjects(data.result);
