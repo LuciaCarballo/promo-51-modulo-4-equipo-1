@@ -7,7 +7,7 @@ function ButtonCard() {
         ¿Lo has revisado bien? Entonces, ¡vamos a dar el siguiente paso!
       </p>
       <div>
-        <Link to="/cardPreviewSite" className="button--preview">¡Hecho!</Link>
+        <Link to="/cardPreview" className="button--preview">¡Hecho!</Link>
       </div>
     </div>
   );
