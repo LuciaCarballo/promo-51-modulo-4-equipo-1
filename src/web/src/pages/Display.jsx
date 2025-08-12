@@ -46,14 +46,14 @@ function Projects() {
           {projects.map((project, index) => (
             <div key={index} className="project__card">
               <div className="project__image">
-                <CardImage data={project.authorphoto} />
+                <CardImage data={project.image} />
               </div>
 
               <article className="project__article">
                 <h2 className="article__projectTitle">Personal Project Card</h2>
 
                 <div className="project__author">
-                  <CardAuthor data={project.authorname} />
+                  <CardAuthor data={project.author} />
                 </div>
 
                 <p className="project__subtitle">About this project:</p>
