@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://LuciaCarballo.github.io/promo-51-modulo-4-equipo-1/",
+  "homepage": "/",
 
   "scripts": {
     "dev": "vite",
