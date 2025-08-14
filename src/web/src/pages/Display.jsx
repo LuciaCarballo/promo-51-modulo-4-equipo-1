@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import CardImage from '../components/cardPreview/CardImage.jsx';
-import CardAuthor from '../components/cardPreview/CardAuthor.jsx';
-import CardProject from '../components/cardPreview/CardProject.jsx';
 import '../styles/layout/display.scss';
+import avatar from '../images/avatar.webp';
+
 
 function Projects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+ useEffect(() => {
+
     fetch('https://promo-51-modulo-4-equipo-1.onrender.com/proyecto-autora')
       .then(res => res.json())
       .then(data => {
@@ -18,10 +19,11 @@ function Projects() {
       .catch(err => {
         console.error('Error al cargar los proyectos:', err);
         setLoading(false);
-      });
-  }, []);
+      });  
+     }, []);
+console.log(projects[0]);
 
-  return (
+return (
 
   <div>
 {/* 
@@ -46,18 +48,29 @@ function Projects() {
           {projects.map((project, index) => (
             <div key={index} className="project__card">
               <div className="project__image">
-                <CardImage data={project.image} />
+                <CardImage data={project} />
               </div>
 
               <article className="project__article">
-                <h2 className="article__projectTitle">Personal Project Card</h2>
+                <h2 className="article__projectTitle">{project.projectName}</h2>
 
                 <div className="project__author">
-                  <CardAuthor data={project.author} />
+                   <div
+                                      className="authorPhoto"
+                                      style={{
+                                      backgroundImage: project.image
+                                          ? `url(${project.image})`
+                                          : `url(${avatar})`
+                                      }}
+                                  ></div>
+                  
+                                  <h3>{project.autor || 'Nombre Apellido'}</h3>
+                                   <p>{project.job || 'Full Stack Developer'}</p>
                 </div>
 
-                <p className="project__subtitle">About this project:</p>
-                <CardProject data={project.description} />
+                <p><strong>Description: </strong>{project.description}</p>
+                <p><strong>Slogan: </strong> {project.slogan}</p>
+                <p><strong>Technologies: </strong>{project.technologies}</p>
 
                 <div className="project__links">
                   {project.demo && (
@@ -90,6 +103,8 @@ function Projects() {
 
     </div>
   );
+
+
 }
 
 export default Projects;
