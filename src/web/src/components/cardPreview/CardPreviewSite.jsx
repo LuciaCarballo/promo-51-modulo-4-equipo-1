@@ -56,8 +56,8 @@ function CardPreviewSite({ data,saveProject, response }) {
         {response && <p className='bt-back'>{response.success  ? 
         (
       <>
-        Proyecto guardado correctamente. Puedes ver tu proyecto{' '}
-        <a className="colorWhite" target="_blank" href={response.cardURL}>aquí</a>.
+        Proyecto guardado correctamente. Puedes ver todos los proyectos
+        <a className="colorWhite" target="_blank" href="https://luciacarballo.github.io/promo-51-modulo-4-equipo-1/#/display">aquí</a>.
       </>
     ): 'Error al guardar el proyecto. Falta algún campo por completar'}</p>}
 
