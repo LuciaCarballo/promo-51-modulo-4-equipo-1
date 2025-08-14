@@ -9,7 +9,7 @@ function Projects() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/proyecto-autora')
+    fetch('https://promo-51-modulo-4-equipo-1.onrender.com/proyecto-autora')
       .then(res => res.json())
       .then(data => {
         setProjects(data.result);

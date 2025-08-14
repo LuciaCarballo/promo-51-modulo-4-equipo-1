@@ -82,7 +82,7 @@ const newdata  = {
   description: data.description,
   projectPhoto: data.projectPhoto,
 };
-  fetch('http://localhost:3000/subir-proyecto',
+  fetch('https://promo-51-modulo-4-equipo-1.onrender.com/subir-proyecto',
     {
       method: 'POST',
       body: JSON.stringify(newdata),
